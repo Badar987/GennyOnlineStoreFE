@@ -1,3 +1,4 @@
+import { TestServiceService } from './Services/test-service.service';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
@@ -9,4 +10,16 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'GennyOnlineStoreFE';
+
+  constructor(private TestServiceService: TestServiceService) {}
+
+  ngOnInit() {
+    this.GetWeatherForecast();
+  }
+
+  GetWeatherForecast() {
+    this.TestServiceService.fntestapi().subscribe((data) => {
+          alert('AppComponent GetWeatherForecast');
+    }
+)};
 }
